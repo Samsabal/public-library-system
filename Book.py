@@ -10,7 +10,10 @@ class Book():
         self.title = title
         self.year = year
     
-    #def writeToDatabase():
+    def writeToDatabase():
+        pass
+
         
     def Sleep(self):
         print(self.author + " slaapt")
+
