@@ -1,5 +1,6 @@
 import Person
 import PersonCSV
+import BookJSON
 
 CURRENTUSER = 0
 
@@ -7,7 +8,10 @@ def setup():
     userList = PersonCSV.readFromPersonCSV()
     for user in userList:
         user.Sleep()
-    #Person.readFromCSV()
+
+    bookList = BookJSON.readFromBookJSON()
+    for book in bookList:
+        book.Sleep()
 
 def register():
     pass
