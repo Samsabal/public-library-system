@@ -17,7 +17,5 @@ class Person():
     
     #def writeToDatabase():
         
-
-    
     def Sleep(self):
         print(self.username + " slaapt")
