@@ -1,4 +1,5 @@
 import json
+import BookItemCSV
 
 class Book():  
     """This is a book class"""
@@ -45,8 +46,16 @@ class Book():
         print("[Book] Title: " + self.title)
         print("[Book] Year: " + str(self.year))
         
-        if (True):
+        if (True): #LoanAvaiblility(self.findISBN)
+            print(self.findISBN())
             input("Would you like loan this book (y/n): ")
         else:
             input("No book available, press any key to go back!")
+
+    def findISBN(self):
+        bookItemList = BookItemCSV.readFromBookItemCSV()
+        for bookItem in bookItemList:
+            if bookItem.author == self.author and bookItem.title == self.title:
+                return bookItem.ISBN
+
 

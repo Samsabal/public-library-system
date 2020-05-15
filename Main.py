@@ -16,8 +16,6 @@ def setup():
     global userList, bookList
     userList = PersonCSV.readFromPersonCSV()
     bookList = BookJSON.readFromBookJSON()
-    #for book in bookList:
-        #print(book.author)
 
 def checkUsername(username):
     global userList, CURRENTUSER
@@ -34,9 +32,9 @@ def loanBook(ISBN):
     LoanItem.LoanItem.writeToDatabase(CURRENTUSER, 14, ISBN)
 
 def register():
-    number = 99  #This needs to be a genarated number
+    number = userList[-1].number
     print("Register a person by filling in the information.\n")
-    gender = input("Gender (male/female): ")
+    gender = input("Gender: ")
     nameSet = input("NameSet: ")
     givenName = input("GivenName: ")
     surname = input ("Surname: ")
@@ -57,7 +55,6 @@ def register():
         person.writeToDatabase(personType)
 
 def addBook():
-    number = 99  #This needs to be a genarated number
     print("Add a Book by filling in the information.\n")
     author = input("Author: ")
     country = input("Country: ")
