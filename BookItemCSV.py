@@ -1,5 +1,7 @@
 import csv
 import BookItem
+import BookJSON
+from random import randint
 
 bookItemCSV = "BookItemDatabase.csv"
 
@@ -18,7 +20,15 @@ def readFromBookItemCSV():
 def writeToBookItemCSV(row_contents):
     with open(bookItemCSV, 'a+', newline='') as write_obj:
         # Create a writer object from csv module
-        csv_writer = csv.writer(write_obj)
+        writer = csv.writer(write_obj, delimiter=',')
         # Add contents of list as last row in the csv file
-        csv_writer.writerow(row_contents)
+        writer.writerow(row_contents)
+
+def createISBN():
+    bookList = BookJSON.readFromBookJSON()
+    for item in bookList:
+            row_contents = [str(item.title), str(item.author), str(randint(3, 40)), str(randint(000000000000, 999999999999))]
+            writeToBookItemCSV(row_contents)
+
+
 
