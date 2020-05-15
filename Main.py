@@ -11,15 +11,7 @@ CURRENTUSER = 0
 def setup():
     global userList, bookList
     userList = PersonCSV.readFromPersonCSV()
-
-    for user in userList:
-        pass
-        #user.Sleep()
-
     bookList = BookJSON.readFromBookJSON()
-    for book in bookList:
-        pass
-        #book.Sleep()
 
 def checkUsername(username):
     global userList, CURRENTUSER
@@ -31,7 +23,6 @@ def checkUsername(username):
         print("This username does not exist, please try again!")
         login()
         
-    
 
 def register():
     number = 99  #This needs to be a genarated number
@@ -90,7 +81,7 @@ def mainMenu():
             Backup.backupMake()
 
         elif option == "5" and Librarian.librarianCheck(CURRENTUSER):
-            pass
+            Backup.backupRestoreMenu()
 
         elif option == "6" and Librarian.librarianCheck(CURRENTUSER):
             register()
