@@ -17,9 +17,6 @@ class Person():
         self.emailAddress = emailAddress
         self.username = username
         self.telephonenumber = telephonenumber
-        
-    def Sleep(self):
-        print(self.username + " slaapt")
 
     def writeToDatabase(self, personType):
         row_contents = [self.number, self.gender, self.nameSet, self.givenName, self.surname,
