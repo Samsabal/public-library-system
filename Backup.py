@@ -46,9 +46,10 @@ def backupRestoreBookJSON(folderName):
 
 def backupMake():
     path = "Backups/Backup_" + datetime.now().strftime("%d-%b-%Y_%H-%M-%S")
-    backupDirectory = os.mkdir(path)
+    os.mkdir(path)
     backupMakeBookJSON(path)
     backupMakePersonCSV(path)
+    print("Backup has been made with date: " + datetime.now().strftime("%d-%b-%Y_%H-%M-%S\n"))
     
 def backupRestore(folderName):
     backupRestoreBookJSON(folderName)
