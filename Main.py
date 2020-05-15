@@ -57,7 +57,6 @@ def register():
         person.writeToDatabase(personType)
 
 def addBook():
-    number = 99  #This needs to be a genarated number
     print("Add a Book by filling in the information.\n")
     author = input("Author: ")
     country = input("Country: ")
