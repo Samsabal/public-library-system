@@ -75,21 +75,20 @@ def backupMakeBookitemDatabaseSCV(backupDirectory):
 def backupRestorePersonCSV(folderName):
     fileName = os.listdir('./Backups/' + folderName)
     csvData = []
-    with open('./Backups/' + folderName + "/" + fileName[1], mode='r') as csv_file:
+    with open('./Backups/' + folderName + "/" + fileName[4], mode='r') as csv_file:
         csv_reader = csv.reader(csv_file, delimiter=',')
 
         for row in csv_reader:
            csvData.append(row)
 
-    for i in ["PersonDatabase.csv", "SubscriberDatabase.csv", "LoanAdministration", "LibrarianDatabase", "BookItemDatabase"]:
-        with open("" + i, 'w+', newline='') as outfile:
-            writer = csv.writer(outfile, delimiter=',')
-            writer.writerows(csvData)  
+    with open("PersonDatabase.csv", 'w+', newline='') as outfile:
+        writer = csv.writer(outfile, delimiter=',')
+        writer.writerows(csvData)  
 
 def backupRestoreSubscriberCSV(folderName):
     fileName = os.listdir('./Backups/' + folderName)
     csvData = []
-    with open('./Backups/' + folderName + "/" + fileName[1], mode='r') as csv_file:
+    with open('./Backups/' + folderName + "/" + fileName[5], mode='r') as csv_file:
         csv_reader = csv.reader(csv_file, delimiter=',')
 
         for row in csv_reader:
@@ -102,7 +101,7 @@ def backupRestoreSubscriberCSV(folderName):
 def backupRestoreLoanAdministrationCSV(folderName):
     fileName = os.listdir('./Backups/' + folderName)
     csvData = []
-    with open('./Backups/' + folderName + "/" + fileName[1], mode='r') as csv_file:
+    with open('./Backups/' + folderName + "/" + fileName[3], mode='r') as csv_file:
         csv_reader = csv.reader(csv_file, delimiter=',')
 
         for row in csv_reader:
@@ -115,7 +114,7 @@ def backupRestoreLoanAdministrationCSV(folderName):
 def backupRestoreLibrarianDatabaseCSV(folderName):
     fileName = os.listdir('./Backups/' + folderName)
     csvData = []
-    with open('./Backups/' + folderName + "/" + fileName[1], mode='r') as csv_file:
+    with open('./Backups/' + folderName + "/" + fileName[2], mode='r') as csv_file:
         csv_reader = csv.reader(csv_file, delimiter=',')
 
         for row in csv_reader:
@@ -134,7 +133,7 @@ def backupRestoreBookItemDatabaseCSV(folderName):
         for row in csv_reader:
            csvData.append(row)
 
-    with open("BookItemDatabase", 'w+', newline='') as outfile:
+    with open("BookItemDatabase.csv", 'w+', newline='') as outfile:
         writer = csv.writer(outfile, delimiter=',')
         writer.writerows(csvData) 
 
@@ -187,15 +186,8 @@ def backupRestoreMenu():
             inRestoreMenu = False
         elif int(backupSelectOption) in optionList:
             folderName = backupFile[int(backupSelectOption)-1]
-            
-            fileName = os.listdir('./Backups/' + folderName)
-            print(fileName)
-
             backupRestore(folderName)
             
-
-            
-
         else:
             print("[Backup] Invalid input. Please try again.")
 
