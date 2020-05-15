@@ -55,7 +55,7 @@ def register():
         person.writeToDatabase(personType)
 
 def addBook():
-    print("[Book] Add a Book by filling in the information.\n")
+    print("[Book] Add a Book by filing in the information.\n")
     author = input("[Book] Author: ")
     country = input("[Book] Country: ")
     imageLink = input("[Book] ImageLink: ")
