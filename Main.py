@@ -1,6 +1,8 @@
 import Person
 import PersonCSV
 import BookJSON
+import Librarian
+import Subscriber
 
 CURRENTUSER = 0
 
@@ -9,7 +11,7 @@ def setup():
     userList = PersonCSV.readFromPersonCSV()
 
     for user in userList:
-        user.Sleep()
+        print(user.username)
 
     bookList = BookJSON.readFromBookJSON()
     for book in bookList:
@@ -21,9 +23,9 @@ def checkUsername(username):
     for user in userList:
         if username == user.username:
             CURRENTUSER = user.number
-        else:
-            print("This username does not excist, please try again!")
-            login()
+    if CURRENTUSER == 0:
+        print("This username does not excist, please try again!")
+        login()
         
     
 
@@ -37,18 +39,25 @@ def register():
 
 
 def login():
-    username = input("Please login with your username: ")
-    checkUsername()  
+    username = input("Please login with your username:\n")
+    checkUsername(username)  
 
 def mainMenu():
     while True:
-        if librarian.librarianCheck(CURRENTUSER):
+        if Librarian.librarianCheck(CURRENTUSER):
             print("1. Search book")
             print("2. Logout")
             print("3. Add book")
             print("4. Make backup")
             print("5. Restore backup")
             print("6. Register user")
+        #elif subscriber.subscriberCheck(CURRENTUSER):
+        #    print("1. Search book")
+        #    print("2. Logout")
+        #    print("3. Add book")
+        #    print("4. Make backup")
+        #    print("5. Restore backup")
+        #    print("6. Register user")
         else:
             print("1. Search book")
             print("2. Logout")
