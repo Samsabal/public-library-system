@@ -91,7 +91,8 @@ def mainMenu():
         
         option = input("\n")
         if option == "1":
-            Catalog.searchBook()
+            catalog = Catalog.Catalog()
+            catalog.searchBook()
             
         elif option == "2":
             clearConsole()

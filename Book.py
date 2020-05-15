@@ -32,7 +32,21 @@ class Book():
             self.writeToJson(data)
     
     def writeToJson(self, data):
-
         with open("BookDatabase.json", 'w',) as f:
             json.dump(data, f, indent=4)
         
+    def showBook(self):
+        print("[Book] Author: " + self.author)
+        print("[Book] Country: " + self.country)
+        print("[Book] Image Link: " + self.imageLink)
+        print("[Book] Language: " + self.language)
+        print("[Book] Link: " + self.link)
+        print("[Book] Pages: " + str(self.pages))
+        print("[Book] Title: " + self.title)
+        print("[Book] Year: " + str(self.year))
+        
+        if (True):
+            input("Would you like loan this book (y/n): ")
+        else:
+            input("No book available, press any key to go back!")
+
