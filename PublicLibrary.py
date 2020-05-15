@@ -1,4 +1,6 @@
-class BookLibrary(Book):  
+import Book
+
+class BookLibrary(Book.Book):  
     """"This is a book class"""
 
         
