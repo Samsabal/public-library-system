@@ -3,6 +3,7 @@ import PersonCSV
 import BookJSON
 import Librarian
 import Subscriber
+import Backup
 
 CURRENTUSER = 0
 
@@ -11,11 +12,13 @@ def setup():
     userList = PersonCSV.readFromPersonCSV()
 
     for user in userList:
-        print(user.username)
+        pass
+        #user.Sleep()
 
     bookList = BookJSON.readFromBookJSON()
     for book in bookList:
-        book.Sleep()
+        pass
+        #book.Sleep()
 
 def checkUsername(username):
     global userList, CURRENTUSER
@@ -73,7 +76,7 @@ def mainMenu():
             pass
 
         elif option == "4":
-            pass
+            Backup.backupMake()
 
         elif option == "5":
             pass
