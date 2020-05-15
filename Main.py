@@ -6,7 +6,7 @@ import Subscriber
 import Backup
 import Book
 import BookItem
-import BookCatalog
+import Catalog
 from utils import clearConsole
 
 CURRENTUSER = 0
@@ -91,7 +91,7 @@ def mainMenu():
         
         option = input("\n")
         if option == "1":
-            BookCatalog.searchBook()
+            Catalog.searchBook()
             
         elif option == "2":
             clearConsole()
