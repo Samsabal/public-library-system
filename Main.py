@@ -4,7 +4,8 @@ import BookJSON
 import Librarian
 import Subscriber
 import Backup
-
+import Book
+import BookItem
 CURRENTUSER = 0
 
 def setup():
@@ -47,7 +48,6 @@ def register():
         person.writeToDatabase(personType)
 
 def addBook():
-    pass
     number = 99  #This needs to be a genarated number
     print("Add a Book by filling in the information.\n")
     author = input("Author: ")
@@ -55,10 +55,16 @@ def addBook():
     imageLink = input("ImageLink: ")
     language = input ("Language: ")
     link = input("Link: ")
+    pages = input("Pages: ")
     title = input("Title: ")
     year = input("Year: ")
     ISBN = input("ISBN: ")
     copies = input("Copies: ")
+    book = Book.Book(author, country, imageLink, language, link, pages, 
+    title, year)
+    bookItem = BookItem.BookItem(copies, ISBN)
+    book.writeToDatabase(book)
+    bookItem.writeToDatabase()
 
 def login():
     username = input("Please login with your username: ")
