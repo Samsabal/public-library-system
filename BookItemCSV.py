@@ -11,7 +11,7 @@ def readFromBookItemCSV():
         #line_count = 0
 
         for r in csv_reader:
-            bookItemList.append( Person.Person(r[0], r[1], r[2], r[3]) )
+            bookItemList.append( BookItem.BookItem(r[0], r[1], r[2], r[3]) )
             
     return bookItemList
 

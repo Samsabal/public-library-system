@@ -13,4 +13,3 @@ class BookItem():
         row_contents = [self.title, self.author, self.copies, self.ISBN]
         
         BookItemCSV.writeToBookItemCSV(row_contents)
-              

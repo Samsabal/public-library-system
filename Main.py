@@ -16,8 +16,6 @@ def setup():
     global userList, bookList
     userList = PersonCSV.readFromPersonCSV()
     bookList = BookJSON.readFromBookJSON()
-    #for book in bookList:
-        #print(book.author)
 
 def checkUsername(username):
     global userList, CURRENTUSER
@@ -34,7 +32,7 @@ def loanBook(ISBN):
     LoanItem.LoanItem.writeToDatabase(CURRENTUSER, 14, ISBN)
 
 def register():
-    number = 99  #This needs to be a genarated number
+    number = userList[-1].number
     print("[Register] Register a person by filling in the information.\n")
     gender = input("[Register] Gender (male/female): ")
     nameSet = input("[Register] NameSet: ")
@@ -57,17 +55,17 @@ def register():
         person.writeToDatabase(personType)
 
 def addBook():
-    print("Add a Book by filling in the information.\n")
-    author = input("Author: ")
-    country = input("Country: ")
-    imageLink = input("ImageLink: ")
-    language = input ("Language: ")
-    link = input("Link: ")
-    pages = input("Pages: ")
-    title = input("Title: ")
-    year = input("Year: ")
-    ISBN = input("ISBN: ")
-    copies = input("Copies: ")
+    print("[Book] Add a Book by filling in the information.\n")
+    author = input("[Book] Author: ")
+    country = input("[Book] Country: ")
+    imageLink = input("[Book] ImageLink: ")
+    language = input ("[Book] Language: ")
+    link = input("[Book] Link: ")
+    pages = input("[Book] Pages: ")
+    title = input("[Book] Title: ")
+    year = input("[Book] Year: ")
+    ISBN = input("[Book] ISBN: ")
+    copies = input("[Book] Copies: ")
     book = Book.Book(author, country, imageLink, language, link, pages, 
     title, year)
     bookItem = BookItem.BookItem(title, author, copies, ISBN)
