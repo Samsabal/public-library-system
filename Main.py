@@ -22,6 +22,7 @@ def checkUsername(username):
         print("This username does not exist, please try again!")
         login()
         
+
 def register():
     number = 99  #This needs to be a genarated number
     print("Register a person by filling in the information.\n")

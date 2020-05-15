@@ -3,13 +3,12 @@ import json
 import Book
 import csv
 import os 
-import Main
 
 def backupMakeBookJSON(backupDirectory):
     with open ("BookDatabase.json", "r") as read_file:
         jsonData = json.load(read_file)
 
-    with open(str(backupDirectory) + "\\BookDatabase" + datetime.now().strftime("%d-%b-%Y_%H-%M-%S") + ".json", 'w+') as outfile:
+    with open(str(backupDirectory) + "/BookDatabase" + datetime.now().strftime("%d-%b-%Y_%H-%M-%S") + ".json", 'w+') as outfile:
         json.dump(jsonData, outfile, indent = 4)     
 
 def backupMakePersonCSV(backupDirectory):
@@ -20,7 +19,7 @@ def backupMakePersonCSV(backupDirectory):
         for row in csv_reader:
            csvData.append(row)
 
-    with open(str(backupDirectory) + "\\PersonDatabase" + datetime.now().strftime("%d-%b-%Y_%H-%M-%S") + ".csv", 'w+', newline='') as outfile:
+    with open(str(backupDirectory) + "/PersonDatabase" + datetime.now().strftime("%d-%b-%Y_%H-%M-%S") + ".csv", 'w+', newline='') as outfile:
         writer = csv.writer(outfile, delimiter=',')
         writer.writerows(csvData)
 
@@ -46,8 +45,8 @@ def backupRestoreBookJSON(folderName):
         json.dump(jsonData, outfile, indent = 4)     
 
 def backupMake():
-    path = "Backups\\Backup_" + datetime.now().strftime("%d-%b-%Y_%H-%M-%S")
-    #backupDirectory = os.mkdir(path)
+    path = "Backups/Backup_" + datetime.now().strftime("%d-%b-%Y_%H-%M-%S")
+    backupDirectory = os.mkdir(path)
     backupMakeBookJSON(path)
     backupMakePersonCSV(path)
     
@@ -56,7 +55,8 @@ def backupRestore(folderName):
     backupRestorePersonCSV(folderName)
 
 def backupRestoreMenu():
-    while True:
+    inRestoreMenu = True
+    while inRestoreMenu:
         iteration = 1
         optionList = []
         backupFile = os.listdir('./Backups')
@@ -73,7 +73,7 @@ def backupRestoreMenu():
         backupSelectOption = input("[Backup] Selection: ")
 
         if backupSelectOption == "q":
-            Main.mainMenu()
+            inRestoreMenu = False
         elif int(backupSelectOption) in optionList:
             folderName = backupFile[int(backupSelectOption)-1]
             backupRestore(folderName)
