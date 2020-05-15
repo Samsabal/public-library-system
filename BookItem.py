@@ -1,6 +1,6 @@
 import Book
 
-class BookItem(Book.Book):  
+class BookItem():  
     """"This is a BookItem class"""
     def __init__(self, copies, ISBN):
         self.copies = copies

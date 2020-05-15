@@ -9,15 +9,30 @@ class Book():
         self.imageLink = imageLink
         self.language = language
         self.link = link
+        self.pages = pages
         self.title = title
         self.year = year
-    
-    def writeToDatabase(self, book):
-        self.book = book
-        jsonData = self.book
 
-        with open("BookDatabase.json", 'w',) as outfile:
-            json.dump(jsonData, outfile)
-           
-            json_writer.writerow([self.author, self.country, self.imageLink, self.language, self.link, self.pages, 
-            self.title, self.year])
+    def writeToDatabase(self, book):
+        with open('BookDatabase.json') as json_file:
+            data  = json.load(json_file)
+            
+            book_data = {
+                "author": self.author,
+                "country": self.country,
+                "imageLink": self.imageLink,
+                "language": self.language,
+                "link": self.link,
+                "pages": self.pages,
+                "title": self.title,
+                "year": self.year
+            }
+            data.append(book_data)
+
+            self.writeToJson(data)
+    
+    def writeToJson(self, data):
+
+        with open("BookDatabase.json", 'w',) as f:
+            json.dump(data, f, indent=4)
+        
