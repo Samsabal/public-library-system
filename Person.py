@@ -1,6 +1,6 @@
 
 class Person():  
-    """"This is a person class"""
+    """This is a person class"""
     def __init__(self, number, gender, nameSet, givenname, surname, streetaddress, 
     zipcode, city, emailAddress, username, telephonenumber):
         self.number = number
@@ -19,3 +19,9 @@ class Person():
         
     def Sleep(self):
         print(self.username + " slaapt")
+
+    def writeToDatabase():
+        pass
+
+    def librarianOrSubscriber():
+        pass

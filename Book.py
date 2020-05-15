@@ -1,5 +1,5 @@
 class Book():  
-    """"This is a book class"""
+    """This is a book class"""
     def __init__(self, author, country, imageLink, language, link, pages, 
     title, year):
         self.author = author
@@ -10,7 +10,10 @@ class Book():
         self.title = title
         self.year = year
     
-    #def writeToDatabase():
+    def writeToDatabase():
+        pass
+
         
     def Sleep(self):
         print(self.author + " slaapt")
+
