@@ -60,6 +60,7 @@ def login():
     checkUsername(username)  
 
 def mainMenu():
+    global CURRENTUSER
     while True:
         if Librarian.librarianCheck(CURRENTUSER):
             print("1. Search book")
@@ -68,14 +69,7 @@ def mainMenu():
             print("4. Make backup")
             print("5. Restore backup")
             print("6. Register user")
-        #elif subscriber.subscriberCheck(CURRENTUSER):
-        #    print("1. Search book")
-        #    print("2. Logout")
-        #    print("3. Add book")
-        #    print("4. Make backup")
-        #    print("5. Restore backup")
-        #    print("6. Register user")
-        else:
+        elif Subscriber.SubscriberCheck(CURRENTUSER):
             print("1. Search book")
             print("2. Logout")
         
@@ -84,18 +78,19 @@ def mainMenu():
             pass
             
         elif option == "2":
+            CURRENTUSER = 0
+            login()
+
+        elif option == "3" and Librarian.librarianCheck(CURRENTUSER):
             pass
 
-        elif option == "3":
-            pass
-
-        elif option == "4":
+        elif option == "4" and Librarian.librarianCheck(CURRENTUSER):
             Backup.backupMake()
 
-        elif option == "5":
+        elif option == "5" and Librarian.librarianCheck(CURRENTUSER):
             pass
 
-        elif option == "6":
+        elif option == "6" and Librarian.librarianCheck(CURRENTUSER):
             register()
         else:
             print("Invalid input. Please try again.\n")
