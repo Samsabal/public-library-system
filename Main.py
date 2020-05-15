@@ -6,9 +6,12 @@ import Subscriber
 import Backup
 import Book
 import BookItem
+import BookItemCSV
 import LoanItem
 import Catalog
 from utils import clearConsole
+from random import randint
+
 
 CURRENTUSER = 0
 
