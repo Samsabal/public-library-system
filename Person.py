@@ -20,8 +20,8 @@ class Person():
     def Sleep(self):
         print(self.username + " slaapt")
 
-    def writeToDatabase():
+    def writeToDatabase(self):
         pass
 
-    def librarianOrSubscriber():
+    def librarianOrSubscriber(self):
         pass

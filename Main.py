@@ -1,17 +1,20 @@
 import Person
 import PersonCSV
 import BookJSON
+import Backup
 
 CURRENTUSER = 0
 
 def setup():
     userList = PersonCSV.readFromPersonCSV()
     for user in userList:
-        user.Sleep()
+        pass
+        #user.Sleep()
 
     bookList = BookJSON.readFromBookJSON()
     for book in bookList:
-        book.Sleep()
+        pass
+        #book.Sleep()
 
 def register():
     pass
@@ -54,7 +57,7 @@ def mainMenu():
             pass
 
         elif option == "4":
-            pass
+            Backup.backupMake()
 
         elif option == "5":
             pass
