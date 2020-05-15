@@ -11,3 +11,19 @@ class Librarian():
             csv_writer = csv.writer(write_obj)
             # Add contents of list as last row in the csv file
             csv_writer.writerow([self.number])
+
+def readFromLibrarianCSV():
+    numberList = []
+
+    with open ("LibrarianDatabase.csv", mode ='r') as csv_file:
+        csv_reader = csv.reader(csv_file, delimiter=',')
+
+        for r in csv_reader:
+            numberList.append( (r[0]) )
+
+    return numberList
+
+def librarianCheck(number):
+    numberList = readFromLibrarianCSV()
+    if number in numberList:
+        return True

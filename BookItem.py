@@ -1,10 +1,12 @@
-class BookItem(Book):  
-    """This is a BookItem class"""
+import Book
+
+class BookItem(Book.Book):  
+    """"This is a BookItem class"""
     def __init__(self, copies):
         self.copies = copies
 
-    def loanBook():
+    def loanBook(self):
         pass
 
-    def writeToDatabase():
+    def writeToDatabase(self):
         pass
