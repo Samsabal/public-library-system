@@ -4,7 +4,10 @@ import BookJSON
 import Librarian
 import Subscriber
 import Backup
+import Book
+import BookItem
 import BookCatalog
+from utils import clearConsole
 
 CURRENTUSER = 0
 
@@ -49,6 +52,25 @@ def register():
         streetAddress, zipCode, city, emailAddress, userName, telephoneNumber)
         person.writeToDatabase(personType)
 
+def addBook():
+    number = 99  #This needs to be a genarated number
+    print("Add a Book by filling in the information.\n")
+    author = input("Author: ")
+    country = input("Country: ")
+    imageLink = input("ImageLink: ")
+    language = input ("Language: ")
+    link = input("Link: ")
+    pages = input("Pages: ")
+    title = input("Title: ")
+    year = input("Year: ")
+    ISBN = input("ISBN: ")
+    copies = input("Copies: ")
+    book = Book.Book(author, country, imageLink, language, link, pages, 
+    title, year)
+    bookItem = BookItem.BookItem(copies, ISBN)
+    book.writeToDatabase(book)
+    bookItem.writeToDatabase()
+
 def login():
     username = input("Please login with your username: ")
     checkUsername(username)  
@@ -72,11 +94,12 @@ def mainMenu():
             BookCatalog.searchBook()
             
         elif option == "2":
+            clearConsole()
             CURRENTUSER = 0
             login()
 
         elif option == "3" and Librarian.librarianCheck(CURRENTUSER):
-            pass
+            addBook()
 
         elif option == "4" and Librarian.librarianCheck(CURRENTUSER):
             Backup.backupMake()
