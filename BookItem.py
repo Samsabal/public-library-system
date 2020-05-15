@@ -1,8 +1,11 @@
-import Book
+import csv
+import BookItemCSV
 
 class BookItem():  
-    """"This is a BookItem class"""
-    def __init__(self, copies, ISBN):
+    """This is a BookItem class"""
+    def __init__(self, title, author, copies, ISBN):
+        self.title = title
+        self.author = author
         self.copies = copies
         self.ISBN = ISBN
 
@@ -10,8 +13,7 @@ class BookItem():
         pass
 
     def writeToDatabase(self):
-        with open("BookDatabase.csv", 'a+', newline='') as write_obj:
-            # Create a writer object from csv module
-            csv_writer = csv.writer(write_obj)
-            # Add contents of list as last row in the csv file
-            csv_writer.writerow([self.copies, self.ISBN])
+        row_contents = [self.title, self.author, self.copies, self.ISBN]
+        
+        BookItemCSV.writeToBookItemCSV(row_contents)
+              
