@@ -6,21 +6,35 @@ CURRENTUSER = 0
 
 def setup():
     userList = PersonCSV.readFromPersonCSV()
-    for user in userList:
-        user.Sleep()
+    #for user in userList:
+    #    user.Sleep()
 
     bookList = BookJSON.readFromBookJSON()
-    for book in bookList:
-        book.Sleep()
+    #for book in bookList:
+    #    book.Sleep()
 
 def register():
-    pass
-    #naam = input("Hier naam: ")
-    #age = input("Hier age: ")
-    #land = input("Hier land: ")
-    #person = Person(naam, land, leeftijd)
-    #person.writeToDatabase()
-
+    number = 99  #This needs to be a genarated number
+    print("Register a person by filling in the information.\n")
+    gender = input("Gender (male/female): ")
+    nameSet = input("NameSet: ")
+    givenName = input("GivenName: ")
+    surname = input ("Surname: ")
+    streetAddress = input("Street Address: ")
+    zipCode = input("Zip Code: ")
+    city = input("City: ")
+    emailAddress = input("Email Address: ")
+    userName = input("Username: ")
+    telephoneNumber = input("Telephone Number: ")
+    
+    personType = input("Is this person a Librarian or Subscriber (librarian/subscriber):")
+    if personType != "librarian" and personType != "subscriber":
+        print("Invalid input, please try again")
+        personType
+    else:
+        person = Person.Person(number, gender, nameSet, givenName, surname,
+        streetAddress, zipCode, city, emailAddress, userName, telephoneNumber)
+        person.writeToDatabase(personType)
 
 def login():
     username = input("Please login with your username: ")
@@ -60,7 +74,7 @@ def mainMenu():
             pass
 
         elif option == "6":
-            pass
+            register()
         else:
             print("Invalid input. Please try again.\n")
 
