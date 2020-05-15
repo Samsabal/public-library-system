@@ -9,7 +9,7 @@ def backupMakeBookJSON(backupDirectory):
     with open ("BookDatabase.json", "r") as read_file:
         jsonData = json.load(read_file)
 
-    with open(str(backupDirectory) + "\BookDatabase" + datetime.now().strftime("%d-%b-%Y_%H-%M-%S") + ".json", 'w+') as outfile:
+    with open(str(backupDirectory) + "\\BookDatabase" + datetime.now().strftime("%d-%b-%Y_%H-%M-%S") + ".json", 'w+') as outfile:
         json.dump(jsonData, outfile, indent = 4)     
 
 def backupMakePersonCSV(backupDirectory):
@@ -20,7 +20,7 @@ def backupMakePersonCSV(backupDirectory):
         for row in csv_reader:
            csvData.append(row)
 
-    with open(str(backupDirectory) + "\PersonDatabase" + datetime.now().strftime("%d-%b-%Y_%H-%M-%S") + ".csv", 'w+', newline='') as outfile:
+    with open(str(backupDirectory) + "\\PersonDatabase" + datetime.now().strftime("%d-%b-%Y_%H-%M-%S") + ".csv", 'w+', newline='') as outfile:
         writer = csv.writer(outfile, delimiter=',')
         writer.writerows(csvData)
 
@@ -46,8 +46,8 @@ def backupRestoreBookJSON(folderName):
         json.dump(jsonData, outfile, indent = 4)     
 
 def backupMake():
-    path = "Backups\Backup_" + datetime.now().strftime("%d-%b-%Y_%H-%M-%S")
-    backupDirectory = os.mkdir(path)
+    path = "Backups\\Backup_" + datetime.now().strftime("%d-%b-%Y_%H-%M-%S")
+    #backupDirectory = os.mkdir(path)
     backupMakeBookJSON(path)
     backupMakePersonCSV(path)
     

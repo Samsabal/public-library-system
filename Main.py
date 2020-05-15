@@ -10,15 +10,7 @@ CURRENTUSER = 0
 def setup():
     global userList, bookList
     userList = PersonCSV.readFromPersonCSV()
-
-    for user in userList:
-        pass
-        #user.Sleep()
-
     bookList = BookJSON.readFromBookJSON()
-    for book in bookList:
-        pass
-        #book.Sleep()
 
 def checkUsername(username):
     global userList, CURRENTUSER
@@ -30,8 +22,6 @@ def checkUsername(username):
         print("This username does not exist, please try again!")
         login()
         
-    
-
 def register():
     number = 99  #This needs to be a genarated number
     print("Register a person by filling in the information.\n")
