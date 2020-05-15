@@ -4,6 +4,7 @@ import BookJSON
 import Librarian
 import Subscriber
 import Backup
+from utils import clearConsole
 
 CURRENTUSER = 0
 
@@ -78,6 +79,7 @@ def mainMenu():
             pass
             
         elif option == "2":
+            clearConsole()
             CURRENTUSER = 0
             login()
 
