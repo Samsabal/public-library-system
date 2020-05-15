@@ -46,6 +46,20 @@ def register():
         streetAddress, zipCode, city, emailAddress, userName, telephoneNumber)
         person.writeToDatabase(personType)
 
+def addBook():
+    pass
+    number = 99  #This needs to be a genarated number
+    print("Add a Book by filling in the information.\n")
+    author = input("Author: ")
+    country = input("Country: ")
+    imageLink = input("ImageLink: ")
+    language = input ("Language: ")
+    link = input("Link: ")
+    title = input("Title: ")
+    year = input("Year: ")
+    ISBN = input("ISBN: ")
+    copies = input("Copies: ")
+
 def login():
     username = input("Please login with your username: ")
     checkUsername(username)  
@@ -73,7 +87,7 @@ def mainMenu():
             login()
 
         elif option == "3" and Librarian.librarianCheck(CURRENTUSER):
-            pass
+            addBook()
 
         elif option == "4" and Librarian.librarianCheck(CURRENTUSER):
             Backup.backupMake()
