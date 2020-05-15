@@ -60,7 +60,7 @@ def mainMenu():
             Backup.backupMake()
 
         elif option == "5":
-            pass
+            Backup.backupRestoreMenu()
 
         elif option == "6":
             pass
