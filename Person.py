@@ -1,3 +1,6 @@
+import PersonCSV
+import Librarian
+import Subscriber
 
 class Person():  
     """This is a person class"""
@@ -14,14 +17,22 @@ class Person():
         self.emailAddress = emailAddress
         self.username = username
         self.telephonenumber = telephonenumber
-    
-    #def writeToDatabase():
         
     def Sleep(self):
         print(self.username + " slaapt")
 
-    def writeToDatabase(self):
-        pass
+    def writeToDatabase(self, personType):
+        row_contents = [self.number, self.gender, self.nameSet, self.givenName, self.surname,
+        self.streetAddress, self.zipCode, self.city, self.emailAddress, self.username, self.telephonenumber]
+        
+        PersonCSV.writeToPersonCSV(row_contents)
+        self.librarianOrSubscriber(personType)
 
-    def librarianOrSubscriber(self):
-        pass
+    def librarianOrSubscriber(self, personType):
+        if personType == "librarian":
+            librarian = Librarian.Librarian(self.number)
+            librarian.writeToDatabase()
+        else:
+            subscriber = Subscriber.Subscriber(self.number)
+            subscriber.writeToDatabase()
+            
