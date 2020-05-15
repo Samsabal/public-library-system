@@ -6,6 +6,8 @@ import Subscriber
 import Backup
 import Book
 import BookItem
+from utils import clearConsole
+
 CURRENTUSER = 0
 
 def setup():
@@ -89,6 +91,7 @@ def mainMenu():
             pass
             
         elif option == "2":
+            clearConsole()
             CURRENTUSER = 0
             login()
 
