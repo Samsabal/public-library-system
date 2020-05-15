@@ -7,6 +7,7 @@ import Backup
 import Book
 import BookItem
 import LoanItem
+import Catalog
 from utils import clearConsole
 
 CURRENTUSER = 0
@@ -15,6 +16,8 @@ def setup():
     global userList, bookList
     userList = PersonCSV.readFromPersonCSV()
     bookList = BookJSON.readFromBookJSON()
+    #for book in bookList:
+        #print(book.author)
 
 def checkUsername(username):
     global userList, CURRENTUSER
@@ -92,7 +95,7 @@ def mainMenu():
         
         option = input("\n")
         if option == "1":
-            pass
+            Catalog.searchBook()
             
         elif option == "2":
             clearConsole()
@@ -100,7 +103,6 @@ def mainMenu():
             login()
 
         elif option == "3" and Librarian.librarianCheck(CURRENTUSER):
-            pass
             addBook()
 
         elif option == "4" and Librarian.librarianCheck(CURRENTUSER):
