@@ -9,7 +9,10 @@ class BookItem():
         self.copies = copies
         self.ISBN = ISBN
 
+ 
     def writeToDatabase(self):
         row_contents = [self.title, self.author, self.copies, self.ISBN]
         
         BookItemCSV.writeToBookItemCSV(row_contents)
+
+

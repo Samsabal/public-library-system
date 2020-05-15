@@ -1,5 +1,8 @@
 import csv
+import Person
 import BookItem
+import BookJSON
+from random import randint
 
 bookItemCSV = "BookItemDatabase.csv"
 
@@ -18,7 +21,11 @@ def readFromBookItemCSV():
 def writeToBookItemCSV(row_contents):
     with open(bookItemCSV, 'a+', newline='') as write_obj:
         # Create a writer object from csv module
-        csv_writer = csv.writer(write_obj)
+        writer = csv.writer(write_obj, delimiter=',')
         # Add contents of list as last row in the csv file
-        csv_writer.writerow(row_contents)
+        writer.writerow(row_contents)
+
+
+
+
 

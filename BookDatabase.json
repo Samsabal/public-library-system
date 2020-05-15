@@ -500,7 +500,7 @@
         "year": 1926
     },
     {
-        "author": "K\u0101lid\u0101sa",
+        "author": "Klidsa",
         "country": "India",
         "imageLink": "images/the-recognition-of-shakuntala.jpg",
         "language": "Sanskrit",
@@ -998,15 +998,5 @@
         "pages": 408,
         "title": "Memoirs of Hadrian",
         "year": 1951
-    },
-    {
-        "author": "Mark",
-        "country": "MeinKampf",
-        "imageLink": "MeinKampf.png",
-        "language": "Nederlands",
-        "link": "DasVaterland.de",
-        "pages": "420",
-        "title": "MeinKampf",
-        "year": "1944"
     }
 ]

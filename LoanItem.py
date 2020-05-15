@@ -1,9 +1,7 @@
 import csv
 import LoanAdministrationCSV
-
-import csv
-import LoanAdministrationCSV
 import BookItemCSV
+import Book
 
 class LoanItem():  
     """This is a LoanItem class"""
@@ -12,18 +10,19 @@ class LoanItem():
         self.days = days
         self.ISBN = ISBN
 
-    def loanAvailabilityCheck(ISBN):
+    def loanAvailabilityCheck(ISBN, author, title):
         pass
-        coppiesCount = 0
-        for ISBN in BookItemCSV.readFromBookItemCSV():
-            if ISBN == BookItemCSV.readFromBookItemCSV.ISBN:
-                return BooBookItemCSV.readFromBookItemCSV.copies
+        copiesCount = 0
+        copies = 0
+        for book in BookItemCSV.readFromBookItemCSV():
+            if author == book.author and title == book.author:
+                copies = book.copies
 
-        for loanItem in readFromLoanItemCSV:
+        for loanItem in LoanAdministrationCSV.readFromLoanItemCSV():
             if ISBN == loanItem.ISBN:
-                coppiesCount += 1
+                copiesCount += 1
         
-        if coppies - coppiesCount > 0:
+        if copies - copiesCount > 0:
             return True
         else:
             return False

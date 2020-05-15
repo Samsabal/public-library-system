@@ -17,9 +17,58 @@ def backupMakePersonCSV(backupDirectory):
         csv_reader = csv.reader(csv_file, delimiter=',')
 
         for row in csv_reader:
-           csvData.append(row)
+            csvData.append(row)
+
 
     with open(str(backupDirectory) + "/PersonDatabase" + datetime.now().strftime("%d-%b-%Y_%H-%M-%S") + ".csv", 'w+', newline='') as outfile:
+        writer = csv.writer(outfile, delimiter=',')
+        writer.writerows(csvData)
+
+def backupMakeSubscriberSCV(backupDirectory):
+    csvData = []
+    with open("SubscriberDatabase.csv", mode='r') as csv_file:
+        csv_reader = csv.reader(csv_file, delimiter=',')
+
+        for row in csv_reader:
+           csvData.append(row)
+
+    with open(str(backupDirectory) + "/Subscriber" + datetime.now().strftime("%d-%b-%Y_%H-%M-%S") + ".csv", 'w+', newline='') as outfile:
+        writer = csv.writer(outfile, delimiter=',')
+        writer.writerows(csvData)
+
+def backupMakeLoanAdministrationSCV(backupDirectory):
+    csvData = []
+    with open("LoanAdministration.csv", mode='r') as csv_file:
+        csv_reader = csv.reader(csv_file, delimiter=',')
+
+        for row in csv_reader:
+           csvData.append(row)
+
+    with open(str(backupDirectory) + "/LoanAdministration" + datetime.now().strftime("%d-%b-%Y_%H-%M-%S") + ".csv", 'w+', newline='') as outfile:
+        writer = csv.writer(outfile, delimiter=',')
+        writer.writerows(csvData)
+
+def backupMakeLibrarianDatabaseSCV(backupDirectory):
+    csvData = []
+    with open("LibrarianDatabase.csv", mode='r') as csv_file:
+        csv_reader = csv.reader(csv_file, delimiter=',')
+
+        for row in csv_reader:
+           csvData.append(row)
+
+    with open(str(backupDirectory) + "/LibrarianDatabase" + datetime.now().strftime("%d-%b-%Y_%H-%M-%S") + ".csv", 'w+', newline='') as outfile:
+        writer = csv.writer(outfile, delimiter=',')
+        writer.writerows(csvData)
+
+def backupMakeBookitemDatabaseSCV(backupDirectory):
+    csvData = []
+    with open("BookItemDatabase.csv", mode='r') as csv_file:
+        csv_reader = csv.reader(csv_file, delimiter=',')
+
+        for row in csv_reader:
+           csvData.append(row)
+
+    with open(str(backupDirectory) + "/BookItemDatabase" + datetime.now().strftime("%d-%b-%Y_%H-%M-%S") + ".csv", 'w+', newline='') as outfile:
         writer = csv.writer(outfile, delimiter=',')
         writer.writerows(csvData)
 
@@ -32,9 +81,62 @@ def backupRestorePersonCSV(folderName):
         for row in csv_reader:
            csvData.append(row)
 
-    with open("PersonDatabase.csv", 'w+', newline='') as outfile:
+    for i in ["PersonDatabase.csv", "SubscriberDatabase.csv", "LoanAdministration", "LibrarianDatabase", "BookItemDatabase"]:
+        with open("" + i, 'w+', newline='') as outfile:
+            writer = csv.writer(outfile, delimiter=',')
+            writer.writerows(csvData)  
+
+def backupRestoreSubscriberCSV(folderName):
+    fileName = os.listdir('./Backups/' + folderName)
+    csvData = []
+    with open('./Backups/' + folderName + "/" + fileName[1], mode='r') as csv_file:
+        csv_reader = csv.reader(csv_file, delimiter=',')
+
+        for row in csv_reader:
+           csvData.append(row)
+
+    with open("SubscriberDatabase.csv", 'w+', newline='') as outfile:
         writer = csv.writer(outfile, delimiter=',')
-        writer.writerows(csvData)  
+        writer.writerows(csvData) 
+
+def backupRestoreLoanAdministrationCSV(folderName):
+    fileName = os.listdir('./Backups/' + folderName)
+    csvData = []
+    with open('./Backups/' + folderName + "/" + fileName[1], mode='r') as csv_file:
+        csv_reader = csv.reader(csv_file, delimiter=',')
+
+        for row in csv_reader:
+           csvData.append(row)
+
+    with open("LoanAdministration.csv", 'w+', newline='') as outfile:
+        writer = csv.writer(outfile, delimiter=',')
+        writer.writerows(csvData) 
+
+def backupRestoreLibrarianDatabaseCSV(folderName):
+    fileName = os.listdir('./Backups/' + folderName)
+    csvData = []
+    with open('./Backups/' + folderName + "/" + fileName[1], mode='r') as csv_file:
+        csv_reader = csv.reader(csv_file, delimiter=',')
+
+        for row in csv_reader:
+           csvData.append(row)
+
+    with open("LibrarianDatabase.csv", 'w+', newline='') as outfile:
+        writer = csv.writer(outfile, delimiter=',')
+        writer.writerows(csvData) 
+
+def backupRestoreBookItemDatabaseCSV(folderName):
+    fileName = os.listdir('./Backups/' + folderName)
+    csvData = []
+    with open('./Backups/' + folderName + "/" + fileName[1], mode='r') as csv_file:
+        csv_reader = csv.reader(csv_file, delimiter=',')
+
+        for row in csv_reader:
+           csvData.append(row)
+
+    with open("BookItemDatabase", 'w+', newline='') as outfile:
+        writer = csv.writer(outfile, delimiter=',')
+        writer.writerows(csvData) 
 
 def backupRestoreBookJSON(folderName):
     fileName = os.listdir('./Backups/' + folderName)
@@ -49,11 +151,19 @@ def backupMake():
     os.mkdir(path)
     backupMakeBookJSON(path)
     backupMakePersonCSV(path)
+    backupMakeSubscriberSCV(path)
+    backupMakeLoanAdministrationSCV(path)
+    backupMakeLibrarianDatabaseSCV(path)
+    backupMakeBookitemDatabaseSCV(path)
     print("Backup has been made with date: " + datetime.now().strftime("%d-%b-%Y_%H-%M-%S\n"))
     
 def backupRestore(folderName):
     backupRestoreBookJSON(folderName)
     backupRestorePersonCSV(folderName)
+    backupRestoreSubscriberCSV(folderName)
+    backupRestoreLibrarianDatabaseCSV(folderName)
+    backupRestoreBookItemDatabaseCSV(folderName)
+    backupRestoreBookJSON(folderName)
 
 def backupRestoreMenu():
     inRestoreMenu = True
@@ -77,6 +187,15 @@ def backupRestoreMenu():
             inRestoreMenu = False
         elif int(backupSelectOption) in optionList:
             folderName = backupFile[int(backupSelectOption)-1]
+            
+            fileName = os.listdir('./Backups/' + folderName)
+            print(fileName)
+
             backupRestore(folderName)
+            
+
+            
+
         else:
             print("[Backup] Invalid input. Please try again.")
+
