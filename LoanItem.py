@@ -10,7 +10,7 @@ class LoanItem():
         self.days = days
         self.ISBN = ISBN
 
-    def loanAvailabilityCheck(ISBN, author, title):
+    def loanAvailabilityCheck(self, ISBN, author, title):
         pass
         copiesCount = 0
         copies = 0

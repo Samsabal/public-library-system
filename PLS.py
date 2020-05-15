@@ -29,14 +29,10 @@ def checkUsername(username):
     if CURRENTUSER == 0:
         print("[Login] This username does not exist, please try again!")
         login()
-        
-def loanBook(ISBN):
-    global CURRENTUSER
-    LoanItem.LoanItem.writeToDatabase(CURRENTUSER, 14, ISBN)
 
 def register():
-    number = userList[-1].number
-    print("[Register] Register a person by filling in the information.\n")
+    number = int(userList[-1].number) + 1
+    print("[Register] Register a person by filling in the information.")
     gender = input("[Register] Gender (male/female): ")
     nameSet = input("[Register] NameSet: ")
     givenName = input("[Register] GivenName: ")
@@ -100,6 +96,7 @@ def mainMenu():
             
         elif option == "2":
             clearConsole()
+            setup()
             CURRENTUSER = 0
             login()
 
