@@ -6,6 +6,7 @@ import Subscriber
 import Backup
 import Book
 import BookItem
+import LoanItem
 import Catalog
 from utils import clearConsole
 
@@ -28,6 +29,9 @@ def checkUsername(username):
         print("This username does not exist, please try again!")
         login()
         
+def loanBook(ISBN):
+    global CURRENTUSER
+    LoanItem.LoanItem.writeToDatabase(CURRENTUSER, 14, ISBN)
 
 def register():
     number = 99  #This needs to be a genarated number
@@ -67,7 +71,7 @@ def addBook():
     copies = input("Copies: ")
     book = Book.Book(author, country, imageLink, language, link, pages, 
     title, year)
-    bookItem = BookItem.BookItem(copies, ISBN)
+    bookItem = BookItem.BookItem(title, author, copies, ISBN)
     book.writeToDatabase(book)
     bookItem.writeToDatabase()
 

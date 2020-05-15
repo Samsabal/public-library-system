@@ -2,6 +2,7 @@ import json
 import Book
 
 def readFromBookJSON():
+    pass
     bookList = []
 
     with open ("BookDatabase.json", "r") as read_file:
