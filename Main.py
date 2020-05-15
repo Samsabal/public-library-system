@@ -4,6 +4,7 @@ import BookJSON
 import Librarian
 import Subscriber
 import Backup
+import BookCatalog
 
 CURRENTUSER = 0
 
@@ -11,6 +12,8 @@ def setup():
     global userList, bookList
     userList = PersonCSV.readFromPersonCSV()
     bookList = BookJSON.readFromBookJSON()
+    #for book in bookList:
+        #print(book.author)
 
 def checkUsername(username):
     global userList, CURRENTUSER
@@ -66,7 +69,7 @@ def mainMenu():
         
         option = input("\n")
         if option == "1":
-            pass
+            BookCatalog.searchBook()
             
         elif option == "2":
             CURRENTUSER = 0
