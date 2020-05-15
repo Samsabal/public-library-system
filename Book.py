@@ -1,5 +1,5 @@
 class Book():  
-    """"This is a book class"""
+    """This is a book class"""
     def __init__(self, author, country, imageLink, language, link, pages, 
     title, year):
         self.author = author
