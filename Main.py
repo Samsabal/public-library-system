@@ -5,13 +5,27 @@ import BookJSON
 CURRENTUSER = 0
 
 def setup():
+    global userList, bookList
     userList = PersonCSV.readFromPersonCSV()
+
     for user in userList:
         user.Sleep()
 
     bookList = BookJSON.readFromBookJSON()
     for book in bookList:
         book.Sleep()
+
+def checkUsername(username):
+    global userList, CURRENTUSER
+
+    for user in userList:
+        if username == user.username:
+            CURRENTUSER = user.number
+        else:
+            print("This username does not excist, please try again!")
+            login()
+        
+    
 
 def register():
     pass
@@ -24,15 +38,11 @@ def register():
 
 def login():
     username = input("Please login with your username: ")
-    # met username kijken welke class person subclass het is
-    # return person.type() aan de mainmenu
-    #person = Person(naam, land, leeftijd)
-    #person.checkUsername()
-    #CURRENTUSER = 
+    checkUsername()  
 
 def mainMenu():
     while True:
-        if(True):
+        if librarian.librarianCheck(CURRENTUSER):
             print("1. Search book")
             print("2. Logout")
             print("3. Add book")
