@@ -12,7 +12,6 @@ import Catalog
 from utils import clearConsole
 from random import randint
 
-
 CURRENTUSER = 0
 
 def setup():
@@ -89,7 +88,7 @@ def mainMenu():
             print("[Menu] 1. Search book")
             print("[Menu] 2. Logout")
         
-        option = input("\n")
+        option = input("[Menu] ")
         if option == "1":
             catalog = Catalog.Catalog()
             catalog.searchBook()
@@ -112,7 +111,8 @@ def mainMenu():
         elif option == "6" and Librarian.librarianCheck(CURRENTUSER):
             register()
         else:
-            print("[Menu] Invalid input. Please try again.\n")
+            clearConsole()
+            print("[Menu] Invalid input. Please try again.")
 
 setup()
 login()
