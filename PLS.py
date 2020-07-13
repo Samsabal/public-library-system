@@ -50,7 +50,7 @@ def register():
     telephoneNumber = input("[Register] Telephone Number: ")
     
     while True:
-        personType = input("[Register] Is this person a Librarian or Subscriber (librarian/subscriber):")
+        personType = input("[Register] Is this person a Librarian or Subscriber (librarian/subscriber): ")
         if personType == "librarian" or personType == "subscriber":
             break
         print("[Register] Invalid input, please try again!")
@@ -58,6 +58,7 @@ def register():
     person = Person.Person(number, gender, nameSet, givenName, surname,
     streetAddress, zipCode, city, emailAddress, userName, telephoneNumber)
     person.writeToDatabase(personType)
+    print("[Register]\n[Register] Register Successful\n[Register]")
 
 def addBook():
     print("[Book] Add a Book by filing in the information.\n")
@@ -95,7 +96,7 @@ def mainMenu():
             print("[Menu] 1. Search book")
             print("[Menu] 2. Logout")
         
-        option = input("[Menu] ")
+        option = input("[Menu]\n[Menu] ")
         if option == "1":
             catalog = Catalog.Catalog()
             catalog.searchBook()
