@@ -160,9 +160,9 @@ def backupRestore(folderName):
     backupRestoreBookJSON(folderName)
     backupRestorePersonCSV(folderName)
     backupRestoreSubscriberCSV(folderName)
+    backupRestoreLoanAdministrationCSV(folderName)
     backupRestoreLibrarianDatabaseCSV(folderName)
     backupRestoreBookItemDatabaseCSV(folderName)
-    backupRestoreBookJSON(folderName)
 
 def backupRestoreMenu():
     inRestoreMenu = True
@@ -185,9 +185,12 @@ def backupRestoreMenu():
         if backupSelectOption == "q":
             inRestoreMenu = False
         elif int(backupSelectOption) in optionList:
+            print("[Backup]")
+            print("[Backup] Restored Successful")
+            print("[Backup]")
             folderName = backupFile[int(backupSelectOption)-1]
-            backupRestore(folderName)
-            
+            inRestoreMenu = False
+            backupRestore(folderName)            
         else:
             print("[Backup] Invalid input. Please try again.")
 
