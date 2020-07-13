@@ -33,7 +33,13 @@ def checkUsername(username):
 def register():
     number = int(userList[-1].number) + 1
     print("[Register] Register a person by filling in the information.")
-    gender = input("[Register] Gender (male/female): ")
+
+    while True:
+        gender = input("[Register] Gender (male/female): ")
+        if gender == "male" or gender == "female":
+            break
+        print("[Register] Invalid input, please try again!")
+
     nameSet = input("[Register] NameSet: ")
     givenName = input("[Register] GivenName: ")
     surname = input ("[Register] Surname: ")
@@ -44,14 +50,15 @@ def register():
     userName = input("[Register] Username: ")
     telephoneNumber = input("[Register] Telephone Number: ")
     
-    personType = input("[Register] Is this person a Librarian or Subscriber (librarian/subscriber):")
-    if personType != "librarian" and personType != "subscriber":
+    while True:
+        personType = input("[Register] Is this person a Librarian or Subscriber (librarian/subscriber):")
+        if personType == "librarian" or personType == "subscriber":
+            break
         print("[Register] Invalid input, please try again!")
-        personType
-    else:
-        person = Person.Person(number, gender, nameSet, givenName, surname,
-        streetAddress, zipCode, city, emailAddress, userName, telephoneNumber)
-        person.writeToDatabase(personType)
+    
+    person = Person.Person(number, gender, nameSet, givenName, surname,
+    streetAddress, zipCode, city, emailAddress, userName, telephoneNumber)
+    person.writeToDatabase(personType)
 
 def addBook():
     print("[Book] Add a Book by filing in the information.\n")
