@@ -68,11 +68,41 @@ def addBook():
     imageLink = input("[Book] ImageLink: ")
     language = input ("[Book] Language: ")
     link = input("[Book] Link: ")
-    pages = input("[Book] Pages: ")
+
+    while True:
+        try:
+            pages = int(input("[Book] Pages: "))
+        except ValueError:
+            print("[Book] Invalid number, please try again.")
+        else:
+            break
+    
     title = input("[Book] Title: ")
-    year = input("[Book] Year: ")
-    ISBN = input("[Book] ISBN: ")
-    copies = input("[Book] Copies: ")
+
+    while True:
+        try:
+            year = int(input("[Book] Year: "))
+        except ValueError:
+            print("[Book] Invalid number, please try again.")
+        else:
+            break
+
+    while True:
+        try:
+            ISBN = int(input("[Book] ISBN: "))
+        except ValueError:
+            print("[Book] Invalid number, please try again.")
+        else:
+            break
+
+    while True:
+        try:
+            copies = int(input("[Book] Copies: "))
+        except ValueError:
+            print("[Book] 1Invalid number, please try again.")
+        else:
+            break
+
     book = Book.Book(author, country, imageLink, language, link, pages, 
     title, year)
     bookItem = BookItem.BookItem(title, author, copies, ISBN)
