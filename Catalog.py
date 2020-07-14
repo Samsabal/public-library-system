@@ -26,12 +26,12 @@ class Catalog():
                 try:
                     chosenBook = int(input("[Catalog] Please input book number: "))
                 except ValueError:
-                    print("[Catalog] 1Invalid number, please try again.\n[Catalog]")
+                    print("[Catalog] ASDInvalid number, please try again.]")
                 else:
                     for number in range(1, (len(self.foundBooks)+1)):
                         if chosenBook == number:
                             loopCheck = False
-                    print("[Catalog] Invalid number, please try again.\n[Catalog]")
+                    print("[Catalog] Invalid number, please try again.")
 
             print("[Catalog]")
             self.foundBooks[chosenBook-1].showBook()
@@ -64,7 +64,9 @@ class Catalog():
                     for number in range(1, (len(self.bookList)+1)):
                         if chosenBook == number:
                             loopCheck = False
-                    print("[Catalog] Invalid number, please try again.\n[Catalog]")    
+                    if loopCheck:
+                        print("[Catalog] Invalid number, please try again.")   
+                         
             print("[Catalog]")
             self.bookList[chosenBook-1].showBook()
             # Hierboven moet ik verwijzen naar de bookList[chosenBook-1].page
