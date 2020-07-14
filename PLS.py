@@ -25,6 +25,7 @@ def checkUsername(username):
     for user in userList:
         if username == user.username:
             CURRENTUSER = user.number
+            Book.setCurrentUses(CURRENTUSER)
     if CURRENTUSER == 0:
         print("[Login] This username does not exist, please try again!")
         login()

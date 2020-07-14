@@ -2,7 +2,6 @@
 import Book
 import BookJSON
 import json
-#import PLS
 
 class Catalog():
     """This is a catalog class"""
@@ -18,8 +17,8 @@ class Catalog():
             iteration += 1
 
         if len(self.foundBooks) <= 0:
-            print("[Catalog] No results found.")
-            #PLS.mainMenu()
+            print("[Catalog] ---No results found.")
+
         else:
             loopCheck = True
             while loopCheck:
