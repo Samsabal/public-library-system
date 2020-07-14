@@ -65,7 +65,7 @@ class Book():
                     break
                 print("[Book] Invalid input, please try again. ")
         else:
-            input("No book available, press any key to go back!")
+            input("[Book] No book available, press any key to go back!")
 
     def findISBN(self):
         bookItemList = BookItemCSV.readFromBookItemCSV()

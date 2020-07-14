@@ -17,7 +17,7 @@ class Catalog():
             iteration += 1
 
         if len(self.foundBooks) <= 0:
-            print("[Catalog] ---No results found.")
+            print("[Catalog] No results found.")
 
         else:
             loopCheck = True
