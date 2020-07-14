@@ -62,7 +62,7 @@ def register():
     setup()
 
 def addBook():
-    print("[Book] Add a Book by filing in the information.\n")
+    print("[Book] Add a Book by filing in the information.")
     author = input("[Book] Author: ")
     country = input("[Book] Country: ")
     imageLink = input("[Book] ImageLink: ")
@@ -99,7 +99,7 @@ def addBook():
         try:
             copies = int(input("[Book] Copies: "))
         except ValueError:
-            print("[Book] 1Invalid number, please try again.")
+            print("[Book] Invalid number, please try again.")
         else:
             break
 
