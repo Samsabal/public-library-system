@@ -10,13 +10,13 @@ class LoanItem():
         self.days = days
         self.ISBN = ISBN
 
-    def loanAvailabilityCheck(self, ISBN, author, title):
+    def loanAvailabilityCheck(ISBN, author, title):
         pass
         copiesCount = 0
         copies = 0
         for book in BookItemCSV.readFromBookItemCSV():
-            if author == book.author and title == book.author:
-                copies = book.copies
+            if author == book.author and title == book.title:
+                copies = int(book.copies)
 
         for loanItem in LoanAdministrationCSV.readFromLoanItemCSV():
             if ISBN == loanItem.ISBN:
