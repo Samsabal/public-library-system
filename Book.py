@@ -3,6 +3,8 @@ import BookItemCSV
 import LoanItem
 import PersonCSV
 
+CURRENTUSER = 0
+
 class Book():  
     """This is a book class"""
     def __init__(self, author, country, imageLink, language, link, pages, 
@@ -38,6 +40,7 @@ class Book():
         with open("BookDatabase.json", 'w',) as f:
             json.dump(data, f, indent=4)
         
+    
     def showBook(self):
         print("[Book] Author: " + self.author)
         print("[Book] Country: " + self.country)
@@ -53,21 +56,7 @@ class Book():
                 print("[Book]")
                 userInput = input("[Book] Would you like loan this book (y/n): ")
                 if userInput == "y":
-
-                    loopCheck = True
-                    while loopCheck:
-                        try:
-                            userNumber = int(input("[Book] User number: "))
-                        except ValueError:
-                            print("[Book] Invalid input, please try again.")
-                        else:
-                            for person in PersonCSV.readFromPersonCSV():
-                                if userNumber == int(person.number):                                 
-                                    loopCheck = False
-                            if loopCheck:        
-                                print("[Book] User does not exist.")  
-
-                    loanItem = LoanItem.LoanItem(userNumber, 14, self.findISBN())
+                    loanItem = LoanItem.LoanItem(CURRENTUSER, 14, self.findISBN())
                     loanItem.writeToDatabase()
                     print("[Book] Loan successfully administrated.")   
                     print("[Book]")                
@@ -84,4 +73,6 @@ class Book():
             if bookItem.author == self.author and bookItem.title == self.title:
                 return bookItem.ISBN
 
-
+def setCurrentUses(usernumber):
+    global CURRENTUSER
+    CURRENTUSER = usernumber
