@@ -21,7 +21,7 @@ def readFromBookItemCSV():
 def writeToBookItemCSV(row_contents):
     with open(bookItemCSV, 'a+', newline='') as write_obj:
         # Create a writer object from csv module
-        writer = csv.writer(write_obj, delimiter=',')
+        writer = csv.writer(write_obj)
         # Add contents of list as last row in the csv file
         writer.writerow(row_contents)
 

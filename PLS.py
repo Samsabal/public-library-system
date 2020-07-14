@@ -59,6 +59,7 @@ def register():
     streetAddress, zipCode, city, emailAddress, userName, telephoneNumber)
     person.writeToDatabase(personType)
     print("[Register]\n[Register] Register Successful\n[Register]")
+    setup()
 
 def addBook():
     print("[Book] Add a Book by filing in the information.\n")
