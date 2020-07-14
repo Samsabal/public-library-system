@@ -127,7 +127,7 @@ def mainMenu():
             print("[Menu] 1. Search book")
             print("[Menu] 2. Logout")
         
-        option = input("[Menu]\n[Menu] ")
+        option = input("[Menu]\n[Menu] Choice: ")
         if option == "1":
             catalog = Catalog.Catalog()
             catalog.searchBook()

@@ -11,12 +11,12 @@ class LoanItem():
         self.ISBN = ISBN
 
     def writeToDatabase(self):
-        number = int(self.subscribernumber)
         with open("LoanAdministrationDatabase.csv", 'a+', newline='') as write_obj:
          #  Create a writer object from csv module
             csv_writer = csv.writer(write_obj)
          #  Add contents of list as last row in the csv file
-            csv_writer.writerow(number, self.days, self.ISBN)
+            contentList = [self.subscribernumber, self.days, self.ISBN]
+            csv_writer.writerow(contentList)
 
 def loanAvailabilityCheck(ISBN, author, title):
     copiesCount = 0

@@ -1,7 +1,7 @@
 import csv
 import LoanItem
 
-loanItemCSV = "loanAdministration.csv"
+loanItemCSV = "loanAdministrationDatabase.csv"
 
 def readFromLoanItemCSV():
     loanItemList = []

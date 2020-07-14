@@ -10,7 +10,7 @@ class Catalog():
         self.foundBooks = []
         self.bookList = BookJSON.readFromBookJSON()
 
-    def iets(self):
+    def chooseLoanBook(self):
         print("[Catalog]")
         iteration = 1
         for book in self.foundBooks:
@@ -26,7 +26,7 @@ class Catalog():
                 try:
                     chosenBook = int(input("[Catalog] Please input book number: "))
                 except ValueError:
-                    print("[Catalog] ASDInvalid number, please try again.]")
+                    print("[Catalog] Invalid number, please try again.]")
                 else:
                     for number in range(1, (len(self.foundBooks)+1)):
                         if chosenBook == number:
@@ -35,19 +35,19 @@ class Catalog():
 
             print("[Catalog]")
             self.foundBooks[chosenBook-1].showBook()
-        # Hierboven moet ik verwijzen naar de bookList[chosenBook-1].page
 
     def searchBook(self):
+        inCatalog = True
         bookList = BookJSON.readFromBookJSON()      
         searchKeywords = []
         searchInputArray = ""
         validInput = False
         print("[Catalog] Please type in your search criteria (title, author, country).")
-        print("[Catalog] You can type in more than one or type 'none' for no criteria")
+        print("[Catalog] You can type in more than one or type 'none' for no criteria.")
         searchInput = input("[Catalog] >>> ")
 
         if "none" in searchInput.lower():
-            self.iets()
+            self.chooseLoanBook()
             iteration = 1
             for book in bookList:
                 print("[Catalog] " + str(iteration) + " - " + book.title)
@@ -59,7 +59,7 @@ class Catalog():
                 try:
                     chosenBook = int(input("[Catalog] Please input book number: "))
                 except ValueError:
-                    print("[Catalog] 1Invalid number, please try again.\n[Catalog]")
+                    print("[Catalog] Invalid number, please try again.")
                 else:
                     for number in range(1, (len(self.bookList)+1)):
                         if chosenBook == number:
@@ -69,7 +69,7 @@ class Catalog():
                          
             print("[Catalog]")
             self.bookList[chosenBook-1].showBook()
-            # Hierboven moet ik verwijzen naar de bookList[chosenBook-1].page
+            inCatalog = False
 
         if "title" in searchInput.lower():
                 searchInputArray += "title"
@@ -86,7 +86,7 @@ class Catalog():
                 searchKeywords.append(input("[Catalog] Fill in the country >>> "))    
                 validInput = True
 
-        if not validInput:
+        if not validInput and inCatalog:
             print("[Catalog]\n[Catalog] Invalid input, please try again.\n[Catalog]")
             self.searchBook()
 
@@ -99,7 +99,7 @@ class Catalog():
                     if criteria.lower() in book.country.lower() and "country" in searchInputArray:
                         self.foundBooks.append(book)
 
-
-        self.iets()
+        if inCatalog:
+            self.chooseLoanBook()
 
             

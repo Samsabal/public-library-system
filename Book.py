@@ -1,6 +1,7 @@
 import json
 import BookItemCSV
 import LoanItem
+import PersonCSV
 
 class Book():  
     """This is a book class"""
@@ -48,8 +49,32 @@ class Book():
         print("[Book] Year: " + str(self.year))
         
         if LoanItem.loanAvailabilityCheck(self.findISBN, self.author, self.title):
-            print(self.findISBN())
-            input("Would you like loan this book (y/n): ")
+            while True:
+                print("[Book]")
+                userInput = input("[Book] Would you like loan this book (y/n): ")
+                if userInput == "y":
+
+                    loopCheck = True
+                    while loopCheck:
+                        try:
+                            userNumber = int(input("[Book] User number: "))
+                        except ValueError:
+                            print("[Book] Invalid input, please try again.")
+                        else:
+                            for person in PersonCSV.readFromPersonCSV():
+                                if userNumber == int(person.number):                                 
+                                    loopCheck = False
+                            if loopCheck:        
+                                print("[Book] User does not exist.")  
+
+                    loanItem = LoanItem.LoanItem(userNumber, 14, self.findISBN())
+                    loanItem.writeToDatabase()
+                    print("[Book] Loan successfully administrated.")   
+                    print("[Book]")                
+                    break
+                if userInput == "n":
+                    break
+                print("[Book] Invalid input, please try again. ")
         else:
             input("No book available, press any key to go back!")
 
