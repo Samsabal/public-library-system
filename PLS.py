@@ -9,7 +9,6 @@ import BookItem
 import BookItemCSV
 import LoanItem
 import Catalog
-from utils import clearConsole
 from random import randint
 
 CURRENTUSER = 0
@@ -63,7 +62,7 @@ def register():
     setup()
 
 def addBook():
-    print("[Book] Add a Book by filing in the information.\n")
+    print("[Book] Add a Book by filing in the information.")
     author = input("[Book] Author: ")
     country = input("[Book] Country: ")
     imageLink = input("[Book] ImageLink: ")
@@ -100,7 +99,7 @@ def addBook():
         try:
             copies = int(input("[Book] Copies: "))
         except ValueError:
-            print("[Book] 1Invalid number, please try again.")
+            print("[Book] Invalid number, please try again.")
         else:
             break
 
@@ -134,7 +133,6 @@ def mainMenu():
             catalog.searchBook()
             
         elif option == "2":
-            clearConsole()
             setup()
             CURRENTUSER = 0
             login()
@@ -151,7 +149,6 @@ def mainMenu():
         elif option == "6" and Librarian.librarianCheck(CURRENTUSER):
             register()
         else:
-            clearConsole()
             print("[Menu] Invalid input. Please try again.")
 
 setup()

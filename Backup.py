@@ -38,13 +38,13 @@ def backupMakeSubscriberSCV(backupDirectory):
 
 def backupMakeLoanAdministrationSCV(backupDirectory):
     csvData = []
-    with open("LoanAdministration.csv", mode='r') as csv_file:
+    with open("LoanAdministrationDatabase.csv", mode='r') as csv_file:
         csv_reader = csv.reader(csv_file, delimiter=',')
 
         for row in csv_reader:
            csvData.append(row)
 
-    with open(str(backupDirectory) + "/LoanAdministration" + datetime.now().strftime("%d-%b-%Y_%H-%M-%S") + ".csv", 'w+', newline='') as outfile:
+    with open(str(backupDirectory) + "/LoanAdministrationDatabase" + datetime.now().strftime("%d-%b-%Y_%H-%M-%S") + ".csv", 'w+', newline='') as outfile:
         writer = csv.writer(outfile, delimiter=',')
         writer.writerows(csvData)
 
@@ -107,7 +107,7 @@ def backupRestoreLoanAdministrationCSV(folderName):
         for row in csv_reader:
            csvData.append(row)
 
-    with open("LoanAdministration.csv", 'w+', newline='') as outfile:
+    with open("LoanAdministrationDatabase.csv", 'w+', newline='') as outfile:
         writer = csv.writer(outfile, delimiter=',')
         writer.writerows(csvData) 
 
