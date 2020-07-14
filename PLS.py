@@ -9,7 +9,6 @@ import BookItem
 import BookItemCSV
 import LoanItem
 import Catalog
-from utils import clearConsole
 from random import randint
 
 CURRENTUSER = 0
@@ -133,7 +132,6 @@ def mainMenu():
             catalog.searchBook()
             
         elif option == "2":
-            clearConsole()
             setup()
             CURRENTUSER = 0
             login()
@@ -150,7 +148,6 @@ def mainMenu():
         elif option == "6" and Librarian.librarianCheck(CURRENTUSER):
             register()
         else:
-            clearConsole()
             print("[Menu] Invalid input. Please try again.")
 
 setup()
