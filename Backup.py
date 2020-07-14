@@ -154,7 +154,7 @@ def backupMake():
     backupMakeLoanAdministrationSCV(path)
     backupMakeLibrarianDatabaseSCV(path)
     backupMakeBookitemDatabaseSCV(path)
-    print("Backup has been made with date: " + datetime.now().strftime("%d-%b-%Y_%H-%M-%S\n"))
+    print("[Backup]\n[Backup] Backup has been made with date: " + datetime.now().strftime("%d-%b-%Y_%H-%M-%S\n[Backup]"))
     
 def backupRestore(folderName):
     backupRestoreBookJSON(folderName)
