@@ -48,7 +48,7 @@ class Book():
         print("[Book] Title: " + self.title)
         print("[Book] Year: " + str(self.year))
         
-        if LoanItem.loanAvailabilityCheck(self.findISBN, self.author, self.title):
+        if LoanItem.loanAvailabilityCheck(self.findISBN(), self.author, self.title):
             while True:
                 print("[Book]")
                 userInput = input("[Book] Would you like loan this book (y/n): ")

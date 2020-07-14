@@ -19,6 +19,7 @@ class LoanItem():
             csv_writer.writerow(contentList)
 
 def loanAvailabilityCheck(ISBN, author, title):
+
     copiesCount = 0
     copies = 0
     for book in BookItemCSV.readFromBookItemCSV():
@@ -26,7 +27,10 @@ def loanAvailabilityCheck(ISBN, author, title):
             copies = int(book.copies)
 
     for loanItem in LoanAdministrationCSV.readFromLoanItemCSV():
+        print(ISBN)
+        print(loanItem.ISBN)
         if ISBN == loanItem.ISBN:
+            
             copiesCount += 1
     
     if copies - copiesCount > 0:
